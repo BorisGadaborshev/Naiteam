@@ -12,6 +12,7 @@ import ach6 from '../../assets/images/6.png'
 import ach7 from '../../assets/images/7.png'
 import { Avatar } from '@mui/material';
 
+
 function Profile() {
   const games = [
                   {title: 'Футбол на стадионе', description: 'Собираемся играть в футбол', date: '1 июня 2022', time: '15:30'},
@@ -23,16 +24,17 @@ function Profile() {
                 ]
 
   const achievements = [
-                          {src: ach1},
-                          {src: ach2},
-                          {src: ach3},
-                          {src: ach4},
-                          {src: ach5},
-                          {src: ach6},
-                          {src: ach7},
+                          {id: 1, src: ach1, desc: 'Участвовал в более чем 10 матчах'},
+                          {id: 2, src: ach2, desc: 'Организовал более 5 мероприятий'},
+                          {id: 3, src: ach3, desc: 'Играл в дождь'},
+                          {id: 4, src: ach4, desc: 'Участвовал в мероприятии дальше 10км от дома'},
+                          {id: 5, src: ach5, desc: 'Выиграл турнир'},
+                          {id: 6, src: ach6, desc: 'Участвовал в праздничном турнире'},
+                          {id: 7, src: ach7, desc: 'Капитальный красавчик!!!'},
                        ]
 
-  const [visibleDescr, setVisibleDescr] = useState(false)
+  const [visibleDescr, setVisibleDescr] = useState({isVisible: false, descr: ''})
+  const [selectedAch, setSelectedAch] = useState(0)
 
   return (
     <div className="profile">
@@ -49,7 +51,7 @@ function Profile() {
           <div className="profile__middle-left">
           <h2>Участвую в:</h2>
             {games.map((game, index) => 
-              <div className="profile__middle-left-item">
+              <div key={game.description} className="profile__middle-left-item">
                 <div>
                   {index + 1}. <a href="#"> {game.title}</a>
                   <p className='description'>{game.description}</p>
@@ -65,12 +67,12 @@ function Profile() {
             <h2>Достижения</h2>
             <div className="profile__achievements">
               <ul>
-                {achievements.map(achievement => <li onClick={() => setVisibleDescr(!visibleDescr)}><Avatar style={{border: '2px solid #000'}} src={achievement.src} sx={{ width: 70, height: 70, border: '2px solid transparent'}}/></li>)}
+                {achievements.map(achievement => <li key={achievement.id} onClick={() => {setVisibleDescr({isVisible: true, descr: achievement.desc}); setSelectedAch(achievement.id);}}><Avatar src={achievement.src} sx={selectedAch === achievement.id ? { width: 70, height: 70, border: '2px solid black'} : { width: 70, height: 70, border: '2px solid transparent'}}/></li>)}
               </ul>
             </div>
-            {visibleDescr && (
+            {visibleDescr.isVisible && (
               <div className="achDescription">
-                Участвовал в более чем 10 играх
+                {visibleDescr.descr}
               </div>)}
             
           </div>

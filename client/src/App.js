@@ -14,10 +14,10 @@ function App() {
     <div className="container">
     <Navbar />
     <Routes>
-   <Route path="/Registration" element={<Registration/>}/>
-   <Route path="/Login" element={<Login/>}/>
-   <Route path="/Logout" element={<Login/>}/>
-   <Route path="/Profile" element={<Profile/>}/>
+      <Route path="/Registration" element={<Registration/>}/>
+      <Route path="/Login" element={<Login/>}/>
+      <Route path="/Logout" element={<Login/>}/>
+      <Route path="/Profile" element={<Profile/>}/>
    </Routes>
     </div>
   );
