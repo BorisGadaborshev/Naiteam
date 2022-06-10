@@ -1,0 +1,24 @@
+<script defer src="/js/delParty.js"></script>
+<div class="card mb-3" style="max-width: 540px; margin: 0 auto; " >
+  
+
+  <div class="row g-0" id="indexOne">
+ 
+    <div class="col-md-8">
+      <div class="card-body">
+ 
+        <h5 class="card-title"> Название: {{oneParty.name}}</h5>
+        <h6 class="card-text">Организатор: {{oneParty.host}}</h6>
+        <h6 class="card-text">Место: {{oneParty.location}}</h6>
+        <h6 class="card-text">Время начала: {{oneParty.start}}</h6>
+           {{#if isAuth}}
+        <a href="/party/show/{{oneParty.id}}/edit">Изменить</a>
+        <a href="" id="deleteButton" data-entryid="{{oneParty.id}}" value="delete">Удалить</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  </a>
+ 
+</div>
+

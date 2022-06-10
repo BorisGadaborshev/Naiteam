@@ -1,0 +1,20 @@
+<script defer src="/js/editParty.js"></script>
+<h1>Изменить вечеринку</h1>
+
+<form id="editPartyForm" method="POST" data-entryid="{{oneParty.id}}" action="/party/show/{{oneParty.id}}">
+<h2 id="err"></h2>
+ <div class="mb-3">
+    <label for="exampleInputName" class="form-label">Название</label>
+    <input type="text" class="form-control" name="name" value="{{oneParty.name}}" tabindex="1">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputName" class="form-label">Место</label>
+    <input type="text" class="form-control" name="location" value="{{oneParty.location}}" tabindex="1">
+  </div>
+    <div class="mb-3" id="date">
+    <label for="exampleInputDate" class="form-label">Начало</label>
+    <input type="datetime-local" class="form-control" name="start" aria-describedby="emailHelp" value="{{oneParty.start}}">
+  </div>
+  <input type="submit" value="Update" tabindex="3"
+    class="btn btn-primary">
+</form>

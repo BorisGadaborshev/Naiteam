@@ -1,0 +1,23 @@
+
+
+<div class="card mb-3" style="max-width: 540px; margin: 0 auto; " >
+  <h2>Все вечеринки:</h2>
+  {{#each allParty}}
+  <div class="row g-0" id="indexAll">
+   
+    <div class="col-md-8">
+      <div class="card-body">
+    <a href="/party/show/{{this.id}}">
+        <h5 class="card-title"> Название: {{this.name}}</h5>
+  </a>
+        <h6 class="card-text">Организатор: {{this.host}}</h6>
+        <h6 class="card-text">Место: {{this.location}}</h6>
+        <h6 class="card-text">Время начала: {{this.start}}</h6>
+        
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+

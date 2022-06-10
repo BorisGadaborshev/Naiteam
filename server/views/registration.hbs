@@ -1,0 +1,21 @@
+  <script defer src="/js/registration.js"></script>
+<form action="/users/registration" method="post" id="addUser">
+
+  <h2 id="err"></h2>
+  <div class="mb-3">
+    <label for="exampleInputLogin" class="form-label">Login</label>
+    <input type="text" class="form-control" name="login">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+
+  <div class="mb-3" id="email">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+  </div>
+
+  <button type="submit" class="btn btn-primary" id="registration">Зарегистрироваться</button>
+</form>

@@ -1,0 +1,21 @@
+  <script defer src="/js/party.js"></script>
+<form action="/party/registration" method="post" id="addParty">
+
+  <h2 id="err"></h2>
+  <div class="mb-3">
+    <label for="exampleInputLogin" class="form-label">Название</label>
+    <input type="text" class="form-control" name="name">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleLocation" class="form-label">Место</label>
+    <input type="text" class="form-control" name="location">
+  </div>
+
+  <div class="mb-3" id="date">
+    <label for="exampleInputDate" class="form-label">Начало</label>
+    <input type="datetime-local" class="form-control" name="start" aria-describedby="emailHelp">
+  </div>
+
+  <button type="submit" class="btn btn-primary" id="reqparty">Создать вечеринку</button>
+</form>
