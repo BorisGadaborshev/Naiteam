@@ -1,4 +1,4 @@
-const { User, Party } = require('../db/models');
+const { Party } = require('../db/models');
 
 exports.getAllParty = async (req, res) => {
   try {

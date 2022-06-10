@@ -15,9 +15,9 @@ exports.isValidReg = (req, res, next) => {
 
 exports.isValidLog = (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { login, password } = req.body;
 
-    if (email.length !== 0 && password.length !== 0) {
+    if (login.length !== 0 && password.length !== 0) {
       next();
     } else {
       res.status(400).end();
