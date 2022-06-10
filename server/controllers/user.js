@@ -1,10 +1,6 @@
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
-exports.getUserForm = async (req, res) => {
-  res.render('registration');
-};
-
 exports.createUser = async (req, res) => {
   const { login, email, password } = req.body;
 
@@ -20,10 +16,6 @@ exports.createUser = async (req, res) => {
     console.error(err);
     res.status(500).end();
   }
-};
-
-exports.getLoginForm = async (req, res) => {
-  res.render('login');
 };
 
 exports.authUser = async (req, res) => {

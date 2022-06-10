@@ -12,38 +12,34 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { red } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
-
-const color = red[500];
-
-const pages = ['Products', 'Registration', 'Blog'];
+import { blueGrey} from '@mui/material/colors';
+import { useDispatch, useSelector } from 'react-redux';
+const color = blueGrey[300];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-function ResponsiveAppBar() {
+const ResponsiveAppBar = () => {
+  const isAuth = useSelector((state) => state.user.isAuth)
+  console.log('isAuth', isAuth)
+  const pages = isAuth ? ['Products', 'Logout'] : ['Products', 'Registration', 'Login']
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
   return (
-    <AppBar position="static" style={{ backgroundColor: color }}>
+    <AppBar position="static" style={{backgroundColor:color}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -55,13 +51,12 @@ function ResponsiveAppBar() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: "inherit",
               textDecoration: 'none',
             }}
           >
             Naiteam
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -92,10 +87,11 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
+         <Link key={page} to={page} style={{textDecoration: "none", color: "black"}}>
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link to={`/${page}`} />
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
+                  </Link>
               ))}
             </Menu>
           </Box>
@@ -120,6 +116,7 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
+              <Link key={page} to={page} style={{textDecoration: "none"}}>
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -127,9 +124,9 @@ function ResponsiveAppBar() {
               >
                 {page}
               </Button>
+              </Link>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -163,5 +160,5 @@ function ResponsiveAppBar() {
       </Container>
     </AppBar>
   );
-}
+};
 export default ResponsiveAppBar;
