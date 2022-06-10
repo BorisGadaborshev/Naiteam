@@ -15,36 +15,26 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import { blueGrey} from '@mui/material/colors';
 import { useDispatch, useSelector } from 'react-redux';
-
 const color = blueGrey[300];
-
-
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
 const ResponsiveAppBar = () => {
-
   const isAuth = useSelector((state) => state.user.isAuth)
   console.log('isAuth', isAuth)
   const pages = isAuth ? ['Products', 'Logout'] : ['Products', 'Registration', 'Login']
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
   return (
     <AppBar position="static" style={{backgroundColor:color}}>
       <Container maxWidth="xl">
@@ -67,7 +57,6 @@ const ResponsiveAppBar = () => {
           >
             Naiteam
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -138,7 +127,6 @@ const ResponsiveAppBar = () => {
               </Link>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
