@@ -13,11 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { red } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 
 const color = red[500];
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products', 'Registration', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -91,8 +92,9 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {pages.map((page, index) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Link to={`/${page}`}></Link>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}

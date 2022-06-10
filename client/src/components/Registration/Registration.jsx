@@ -3,6 +3,10 @@ import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import  './Registration.css';
+import { red } from '@mui/material/colors';
+
+const color = red[500];
+
 
 export default function Registration() {
   return (
@@ -28,7 +32,7 @@ type="email"
   label="email"
   margin="normal"
 />
-<Button variant="contained" endIcon={<SendIcon />}>
+<Button variant="contained" style={{backgroundColor:color}} endIcon={<SendIcon />}>
   Регистрация
 </Button>
     </div>
